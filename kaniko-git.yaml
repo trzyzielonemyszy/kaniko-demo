@@ -8,11 +8,11 @@ spec:
   containers:
   - name: kaniko
     image: gcr.io/kaniko-project/executor:debug
-    args: ["--context=git://github.com/vfarcic/kaniko-demo",
-            "--destination=vfarcic/devops-toolkit:1.0.0"]
+    args: ["--context=git://github.com/trzyzielonemyszy/kaniko-demo", #tu bedzie szukac dokerfilu, podlinkowac z gitlaba
+            "--destination=3greenmouses/devops-toolkit:1.0.0"] #gdzei chcemy pusowac image , dockerhub
     volumeMounts:
-      - name: kaniko-secret
-        mountPath: /kaniko/.docker
+      - name: kaniko-secret 
+        mountPath: /kaniko/.docker # tu sciezka do sekretow
   restartPolicy: Never
   volumes:
     - name: kaniko-secret
